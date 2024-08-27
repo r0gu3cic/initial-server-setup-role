@@ -1,38 +1,70 @@
-Role Name
+# Role Name
+
 =========
 
-A brief description of the role goes here.
+This Ansible role is designed for the initial and secure setup of an Ubuntu server. It configures essential services, sets up a sudo user, and applies basic security measures to ensure the server is ready for production use.
 
-Requirements
+## Requirements
+
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role is designed to work with Ubuntu distributions. It requires the following:
 
-Role Variables
---------------
+- Ansible 2.9 or higher
+- `sshpass` for running the playbook with SSH password authentication.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Role Variables
 
-Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+The following variables can be configured for this role:
 
-Example Playbook
-----------------
+- **`user`**: The name of the sudo user to be created.
+- **`user_sudo_password`**: The password for the sudo user.
+- **`user_public_key`**: The SSH public key to be added to the sudo user's `~/.ssh/authorized_keys`.
+- **`journalctl_max_disk_usage`**: Max disk space that could be used by journal.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+These variables can be defined in the playbook or in a `vars` file.
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+## Dependencies
 
-License
--------
+------------
 
-BSD
+This role has no dependencies on other roles.
 
-Author Information
-------------------
+## Example Playbook
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+------------
+
+```yaml
+- hosts: servers
+  become: yes
+  vars:
+    sudo_user: "admin"
+    sudo_password: "$6$rounds=656000$saltsalt$xxxx"
+    ssh_public_key: "ssh-rsa AAAA..."
+  roles:
+    - role: your_username.role_name
+```
+
+## License
+
+------------
+
+MIT License
+
+## Testing Guide
+
+------------
+
+To run a local test for this role, use the following command:
+
+```bash
+ansible-playbook tests/test.yml -i tests/local_inventory.ini -u root -k
+```
+
+## Author Information
+
+------------
+
+This role was created by Stefan/enabler/r0gu3cic. For any inquiries or further information, please reach out via [GitHub](https://github.com/r0gu3cic).
