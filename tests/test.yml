@@ -1,5 +1,9 @@
 ---
-- hosts: localhost
+- hosts: local_vm
   remote_user: root
   roles:
-    - initial-server-setup-role
+    - role: ../../initial-server-setup-role
+      # tags:
+      #   - ubuntu_server
+      #   - ubuntu_user
+

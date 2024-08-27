@@ -1,5 +1,5 @@
 ---
 user: enabler
-user_sudo_password: 12345678
+user_sudo_password: $6$.enlgxiLYlnEkewM$6UDVIZWd7zyItcpwBbik0Ntv/Iijv6EmqsmWSxvniGpqjcjsHXqcwUM0r5C0D5ahsT/lYywGlCXYM2prM5Wcx1
 user_public_key: /home/stefan/.ssh/id_rsa.pub # The path on host from which playbooks are run
 journalctl_max_disk_usage: 1G
