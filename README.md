@@ -10,7 +10,7 @@ This Ansible role is designed for the initial and secure setup of an Ubuntu serv
 
 This role is designed to work with Ubuntu distributions. It requires the following:
 
-- Ansible 2.9 or higher
+- Ansible 2.10.8 or higher
 - `sshpass` for running the playbook with SSH password authentication.
 
 ## Role Variables
@@ -68,4 +68,4 @@ ansible-playbook tests/test.yml -i tests/local_inventory.ini -u root -k
 
 ------------
 
-This role was created by Stefan/enabler/r0gu3cic. For any inquiries or further information, please reach out via [GitHub](https://github.com/r0gu3cic).
+This role was created by Stefan, aka enabler, aka r0gu3cic. For any inquiries or further information, please reach out via [GitHub](https://github.com/r0gu3cic).
