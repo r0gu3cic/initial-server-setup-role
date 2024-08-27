@@ -1,0 +1,6 @@
+---
+- name: Configure ubuntu server with sudo user
+  import_tasks: 
+    - configure_ubuntu_server.yml
+    - add_sudo_user_ubuntu.yml
+  when: ansible_facts['distribution']|lower == 'ubuntu'

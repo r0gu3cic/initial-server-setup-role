@@ -1,0 +1,5 @@
+---
+user: enabler
+user_sudo_password: 12345678
+user_public_key: /home/stefan/.ssh/id_rsa.pub # The path on host from which playbooks are run
+journalctl_max_disk_usage: 1G
