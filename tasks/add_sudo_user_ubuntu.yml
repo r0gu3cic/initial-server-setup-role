@@ -2,8 +2,8 @@
 # Add regular user with sudo privileges and with ssh key 
 - name: Create a new regular user with sudo privileges
   user:
-    name: "{{user}}"
-    password: "{{user_sudo_password}}"
+    name: "{{user.name}}"
+    password: "{{user.sudo_password}}"
     update_password: on_create
     state: present
     groups: sudo
@@ -13,6 +13,6 @@
     shell: /bin/bash
 - name: Set authorized key for new regular user with sudo privileges
   authorized_key:
-    user: "{{user}}"
+    user: "{{user.name}}"
     state: present
-    key: "{{ lookup('file', '{{user_public_key}}') }}"
+    key: "{{ lookup('file', '{{user.public_key}}') }}"

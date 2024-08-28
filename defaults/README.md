@@ -2,7 +2,7 @@
 
 =========
 
-This Ansible role is designed for the initial and secure setup of an Ubuntu server. It configures essential services, sets up a sudo user, and applies basic security measures to ensure the server is ready for production use.
+This Ansible role is designed for the initial and secure setup of an Ubuntu server. It configures essential services, sets up a sudo user.name, and applies basic security measures to ensure the server is ready for production use.
 
 ## Requirements
 
@@ -19,9 +19,9 @@ This role is designed to work with Ubuntu distributions. It requires the followi
 
 The following variables can be configured for this role:
 
-- **`user.name`**: The name of the sudo user to be created.
-- **`user.sudo_password`**: The password for the sudo user.
-- **`user.public_key`**: Path to the SSH public key to be added to the sudo user's `~/.ssh/authorized_keys`.
+- **`user.name.name`**: The name of the sudo user.name to be created.
+- **`user.name.sudo_password`**: The password for the sudo user.name.
+- **`user.name.public_key`**: Path to the SSH public key to be added to the sudo user.name's `~/.ssh/authorized_keys`.
 - **`journalctl_max_disk_usage`**: Max disk space that could be used by journal.
 
 These variables can be defined in the playbook or in a `vars` file.
@@ -31,22 +31,6 @@ These variables can be defined in the playbook or in a `vars` file.
 ------------
 
 This role has no dependencies on other roles.
-
-## Example Playbook
-
-------------
-
-```yaml
-- hosts: servers
-  become: yes
-  vars:
-    user.name: "admin"
-    user.sudo_password: "$6$rounds=656000$saltsalt$xxxx"
-    user.public_key: "/home/stefan/.ssh/id_rsa.pub"
-    journalctl_max_disk_usage: 1G
-  roles:
-    - role: your_username.role_name
-```
 
 ## License
 
