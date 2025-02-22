@@ -1,0 +1,12 @@
+galaxy_info:
+  author: enabler
+  description: Initial server setup role
+  company: enabler
+  license: MIT
+  min_ansible_version: 2.10.8
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+dependencies: []
