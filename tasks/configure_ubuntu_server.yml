@@ -97,7 +97,8 @@
     - mc
 
 # Update system repositories cache and upgrade system
-- block:
+- name: Update repositories cache and upgrade system
+  block:
     - name: Update repositories cache
       apt: 
         update_cache: yes
