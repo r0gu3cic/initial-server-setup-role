@@ -97,10 +97,12 @@
     - mc
 
 # Update system repositories cache and upgrade system
-- name: Update repositories cache
-  apt: 
-    update_cache: yes
-# Upgrade system
-- name: Upgrade system 
-  apt:
-    upgrade: full
+- block:
+    - name: Update repositories cache
+      apt: 
+        update_cache: yes
+    - name: Upgrade system
+      apt:
+        upgrade: full
+  tags:
+    - update_and_upgrade_server
